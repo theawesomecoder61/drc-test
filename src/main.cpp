@@ -150,47 +150,47 @@ bool menuDrcBase() {
 	void* handle;
 	
 	char (*VPADBASEIsInit)();
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEIsInit", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEIsInit", &handle);
 	VPADBASEIsInit = (char(*)())handle;
 	
 	int (*VPADBASEGetState)(int channel);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetState", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetState", &handle);
 	VPADBASEGetState = (int(*)(int channel))handle;
 	
 	void (*VPADBASEGetCalibrationData)(char buffer[0x44], int channel);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetCalibrationData", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetCalibrationData", &handle);
 	VPADBASEGetCalibrationData = (void(*)(char buffer[0x44], int channel))handle;
 	
 	void (*VPADBASEGetGameControllerMode)(int channel, uint32_t* mode);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetGameControllerMode", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetGameControllerMode", &handle);
 	VPADBASEGetGameControllerMode = (void(*)(int channel, uint32_t* mode))handle;
 	
 	void (*VPADBASESetGameControllerMode)(int channel, int mode);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASESetGameControllerMode", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASESetGameControllerMode", &handle);
 	VPADBASESetGameControllerMode = (void(*)(int channel, int mode))handle;
 	
 	void (*VPADBASEGetFactorySetting)(char buffer[0x1C], int channel);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetFactorySetting", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetFactorySetting", &handle);
 	VPADBASEGetFactorySetting = (void(*)(char buffer[0x1C], int channel))handle;
 	
 	void (*VPADBASEGetVolumeOverrideSetting)(int channel, char* enabled, char* volume);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetVolumeOverrideSetting", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetVolumeOverrideSetting", &handle);
 	VPADBASEGetVolumeOverrideSetting = (void(*)(int channel, char* enabled, char* volume))handle;
 	
 	void (*VPADBASESetVolumeOverrideSetting)(int channel, char enabled, char volume);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASESetVolumeOverrideSetting", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASESetVolumeOverrideSetting", &handle);
 	VPADBASESetVolumeOverrideSetting = (void(*)(int channel, char enabled, char volume))handle;
 	
 	void (*VPADBASEInitVolumeOverrideSettingSyncTime)(int channel);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEInitVolumeOverrideSettingSyncTime", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEInitVolumeOverrideSettingSyncTime", &handle);
 	VPADBASEInitVolumeOverrideSettingSyncTime = (void(*)(int channel))handle;
 	
 	char (*VPADBASEGetVolumeOverrideStatus)(int channel);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetVolumeOverrideStatus", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetVolumeOverrideStatus", &handle);
 	VPADBASEGetVolumeOverrideStatus = (char(*)(int channel))handle;
 	
 	int (*VPADBASEGetHeadphoneStatus)(int channel);
-	OSDynLoad_FindExport(base_handle, 0, "VPADBASEGetHeadphoneStatus", &handle);
+	OSDynLoad_FindExport(base_handle, OS_DYNLOAD_EXPORT_FUNC, "VPADBASEGetHeadphoneStatus", &handle);
 	VPADBASEGetHeadphoneStatus = (int(*)(int channel))handle;
 	
 	//Thanks to https://wiiubrew.org/wiki/Vpadbase.rpl

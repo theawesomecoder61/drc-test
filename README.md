@@ -1,5 +1,9 @@
 # drc-test
-A WiiU homebrew/app to test the DRC and read/write some hidden values
+A Wii U homebrew application to test the DRC and read/write some hidden values.
+
+This fork was updated and built using the latest version of wut, and is compatible with Aroma. The original version is meant for Tiramisu and legacy CFWs.
+
+Aroma and Tiramisu/legacy versions are available for download. If you use Aroma and Tiramisu, you may download both versions.
 
 ## Features for testing
 - Buttons/Joysticks
@@ -16,12 +20,11 @@ A WiiU homebrew/app to test the DRC and read/write some hidden values
 - Gamepad BASE
 
 ## Usage
-### ·HBL Version
-Take the contents of `<drctest hbl.zip>` here: [https://github.com/Pokes303/drc-test/releases/latest] and place them on your WiiU SD Card at sd:/wiiu/apps/
+### Aroma
+Download `drctest.wuhb` from [https://github.com/theawesomecoder61/drc-test/releases/latest] and place it on your Wii U SD card at `sd:/wiiu/apps/drctest/`. It will appear on your Wii U home screen.
 
-### ·Channel Version
-Take the contents of `<drctest channel.zip>` here: [https://github.com/Pokes303/drc-test/releases/latest], then move the folder `<drctest channel>` to sd:/install/
-Put the SD Card on your WiiU and install the contents with WUP Installer GX2
+### Tiramisu and legacy CFWs
+Download `drctest.rpx` from [https://github.com/theawesomecoder61/drc-test/releases/latest] and place it on your Wii U SD card at `sd:/wiiu/apps/drctest/`. It will appear in the Homebrew Launcher.
 
 ## Compiling
 On Linux or WSL, download and install devkitPro's wut package: [https://github.com/devkitPro/wut] and follow the initial instructions for compiling projects (No extra libraries are needed), then clone the repository, unzip the files and write on the command line:
@@ -29,3 +32,6 @@ On Linux or WSL, download and install devkitPro's wut package: [https://github.c
 cd drc-test-master
 make
 ```
+
+## Credit
+- Pokes303: drc-test
