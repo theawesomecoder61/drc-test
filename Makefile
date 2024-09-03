@@ -12,6 +12,15 @@ endif
 
 TOPDIR ?= $(CURDIR)
 
+#-------------------------------------------------------------------------------
+# APP_NAME sets the long name of the application
+# APP_SHORTNAME sets the short name of the application
+# APP_AUTHOR sets the author of the application
+#-------------------------------------------------------------------------------
+APP_NAME	:= DRC Test WUT
+APP_SHORTNAME	:= DRCTest
+APP_AUTHOR	:= Pokes303
+
 include $(DEVKITPRO)/wut/share/wut_rules
 
 #-------------------------------------------------------------------------------
@@ -24,6 +33,14 @@ include $(DEVKITPRO)/wut/share/wut_rules
 TARGET		:=	drctest
 BUILD		:=	build
 SOURCES		:=	src
+DATA		:=
+INCLUDES	:=
+CONTENT		:=
+ICON		:=	meta/wuhb/icon.png
+TV_SPLASH	:=	meta/wuhb/tv-splash.png
+DRC_SPLASH	:=	meta/wuhb/drc-splash.png
+ROMFS 		:=
+
 
 #-------------------------------------------------------------------------------
 # options for code generation
@@ -31,7 +48,7 @@ SOURCES		:=	src
 CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
 			$(MACHDEP)
 
-CFLAGS	+=	$(INCLUDE) -D__WIIU__ -D__WUT__
+CFLAGS	+=	$(INCLUDE) -D__WIIU__ -D__WUT__ -D__wiiu__
 
 CXXFLAGS	:= $(CFLAGS)
 
@@ -104,7 +121,17 @@ $(BUILD):
 #-------------------------------------------------------------------------------
 clean:
 	@echo clean ...
-	@rm -fr $(BUILD) $(TARGET).rpx $(TARGET).elf
+	@rm -fr $(BUILD) $(TARGET).wuhb $(TARGET).rpx $(TARGET).elf DRCTestWUT *.zip
+
+#-------------------------------------------------------------------------------
+release: $(BUILD)
+	@mkdir -p DRCTestWUT
+	@cp drctest.rpx DRCTestWUT
+	@cp meta/hbl/icon.png DRCTestWUT
+	@cp meta/hbl/meta.xml DRCTestWUT
+	@zip -9 -r DRCTestWUT-HBL.zip DRCTestWUT
+	@zip -9 DRCTestWUT-Aroma.zip drctest.wuhb
+	@rm -rf DRCTestWUT
 
 #-------------------------------------------------------------------------------
 else
@@ -115,8 +142,9 @@ DEPENDS	:=	$(OFILES:.o=.d)
 #-------------------------------------------------------------------------------
 # main targets
 #-------------------------------------------------------------------------------
-all	:	$(OUTPUT).rpx
+all	:	$(OUTPUT).wuhb
 
+$(OUTPUT).wuhb	:	$(OUTPUT).rpx
 $(OUTPUT).rpx	:	$(OUTPUT).elf
 $(OUTPUT).elf	:	$(OFILES)
 
